@@ -16,7 +16,8 @@
 - Debug/reform/refactor as needed.
   
 - Sources:
-  Used tutorial to learn how to set up columns and tasks:
+  
+- Used tutorial to learn how to set up columns and tasks:
   https://www.youtube.com/watch?v=3RWMktZNsJQ
 
 - React Icons:
