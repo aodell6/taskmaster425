@@ -1,0 +1,30 @@
+{
+  "board": [
+    {
+      "name": "Task Master",
+      "isActive" : true,
+      "columns": [
+        {
+          "name": "To-Do",
+          "tasks": [
+          ]
+        },
+        {
+          "name": "In Progress",
+          "tasks": [
+          ]
+        },
+        {
+          "name": "Completed",
+          "tasks": [
+          ]
+        },
+        {
+          "name": "Unassigned",
+          "tasks": [
+          ]
+        }
+      ]
+    }
+  ]
+}
