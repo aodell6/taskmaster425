@@ -1,0 +1,6 @@
+endDate: IODate/string
+title: string
+owner: TBD
+desription: string
+taskType: int
+taskIDNum: int
