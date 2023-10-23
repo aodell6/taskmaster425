@@ -16,7 +16,7 @@ function Login({stateFunction}) {
         <div className="title-page">
 
             <div className="title-container">
-            <h1 className="title">Taskmaster</h1>
+            <h1 className="title">Task Management</h1>
             </div>
         
             <div className="login-container">
