@@ -27,11 +27,11 @@ function Header() {
 
           {/* Title & Icons */}
           <div className = "flex items-center space-x-2 font-bold text-2xl">
-            <GiHaunting size = {40} color = "#b91c1c" />
+            <GiHaunting size = {40} color = "#007bff" />
             <h3>
               Task Management
             </h3>
-            <GiRaiseZombie size = {40} color = "#b91c1c" />
+            <GiRaiseZombie size = {40} color = "#007bff" />
           </div>
 
             {/*/!* Theme Toggle *!/*/}

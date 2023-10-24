@@ -39,6 +39,10 @@ function Login({stateFunction}) {
                     <button onClick={handleLogin}>Login</button>
                 </form>
             </div>
+
+            <footer>
+                &copy; 2023 'The Best Team'
+            </footer>
         </div>
     );
 }

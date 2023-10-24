@@ -84,7 +84,7 @@ function AddEditModal({
           }}
       >
         <div
-            className = "max-h-[95vh]  my-auto  bg-white dark:bg-[#2b2c37] dark:text-red-700 text-red-700 font-bold
+            className = "max-h-[95vh]  my-auto  bg-white dark:bg-[#2b2c37] dark:text-[#007bff] font-bold
        shadow-md shadow-[#364e7e1a] max-w-md mx-auto  w-full px-8  py-8 rounded-xl"
         >
           <h3 className = "text-lg">
@@ -93,7 +93,7 @@ function AddEditModal({
 
           {/* Task Name */}
           <div className = "mt-8 flex flex-col space-y-1">
-            <label className = "text-sm dark:text-red-700 text-red-700">
+            <label className = "text-sm dark:text-[#007bff]">
               Task Name
             </label>
             <input
@@ -107,7 +107,7 @@ function AddEditModal({
 
           {/* Due Date */}
           <div className = "mt-8 flex flex-col space-y-1">
-            <label className = "text-sm dark:text-red-700 text-red-700">
+            <label className = "text-sm dark:text-[#007bff]">
               Due Date
             </label>
             <input
@@ -121,7 +121,7 @@ function AddEditModal({
 
           {/* Description */}
           <div className = "mt-8 flex flex-col space-y-1">
-            <label className = "text-sm dark:text-red-700 text-red-700">
+            <label className = "text-sm dark:text-[#007bff]">
               Description
             </label>
             <textarea
@@ -134,7 +134,7 @@ function AddEditModal({
 
           {/* Status  */}
           <div className = "mt-8 flex flex-col space-y-3">
-            <label className = "text-sm dark:text-red-700 text-red-700">
+            <label className = "text-sm dark:text-[#007bff]">
               Current Status
             </label>
             <select
@@ -154,7 +154,7 @@ function AddEditModal({
                     type === "edit" && setIsTaskModalOpen(false);
                   }
                 }}
-                className = "w-full items-center text-white bg-[#b91c1c] py-2 rounded-full"
+                className = "w-full items-center text-white bg-[#007bff] py-2 rounded-full"
             >
               {type === "edit" ? "Save Edit" : "Create task"}
             </button>
