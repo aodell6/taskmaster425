@@ -14,13 +14,13 @@ function DeleteModal({ onDeleteBtnClick, setIsDeleteModalOpen }) {
     >
       {/* Delete Button */}
       <div className = "max-h-[95vh]  my-auto  bg-white dark:bg-[#2b2c37] text-black dark:text-white font-bold shadow-md shadow-[#364e7e1a] max-w-md mx-auto  w-full px-8  py-8 rounded-x">
-        <h3 className = "font-bold text-red-700 text-xl">
+        <h3 className = "font-bold text-[#007bff] text-xl">
           Delete this task?
         </h3>
         <div className = "flex w-full mt-4 items-center justify-center space-x-4">
           <button
             onClick = { onDeleteBtnClick}
-            className = "w-full items-center text-white bg-red-700 py-2 rounded-full"
+            className = "w-full items-center text-white bg-[#007bff] py-2 rounded-full"
           >
             Delete
           </button>
