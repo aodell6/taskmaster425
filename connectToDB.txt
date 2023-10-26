@@ -7,3 +7,23 @@ that line gives admin access to the db
 
 MongoDB has been installed
 
+
+AWS DB login
+admin
+L4iFV7pbaWj7DA
+
+sql db access
+mysql -h taskmasterdb.czmvuv6ephds.us-east-2.rds.amazonaws.com -P3306 -u admin -p
+
+endpoint: taskmasterdb.czmvuv6ephds.us-east-2.rds.amazonaws.com
+
+##database structure
+CREATE TABLE `TaskDatabase` (
+	`TaskID` INT unsigned NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`TaskTitle` VARCHAR(255) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+	`TaskDescription` TEXT CHARACTER SET ascii COLLATE ascii_bin NOT NULL DEFAULT '',
+	`TaskType` TINYINT unsigned NOT NULL DEFAULT '0',
+	`DueDate` DATE NOT NULL,
+	PRIMARY KEY (`TaskID`)
+);
