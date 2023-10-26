@@ -35,7 +35,7 @@ function Column({ colIndex }) {
           className = "mx-5 pt-[90px] min-w-[280px]"
       >
         {/*Adds Columns to Board*/}
-        <p className = "flex items-center tracking-widest md:tracking-[.2em] text-[#b91c1c]">
+        <p className = "flex items-center tracking-widest md:tracking-[.2em] text-[#007bff]">
           {col.name} ({col.tasks.length})
         </p>
 

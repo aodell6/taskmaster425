@@ -69,7 +69,7 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
                 onClick = {() => {
                   setIsEllipsisMenuOpen((prevState) => !prevState);
                 }}
-                size = {28} color = "#b91c1c"
+                size = {28} color = "#007bff"
             />
 
             {isEllipsisMenuOpen && (
