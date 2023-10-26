@@ -6,7 +6,7 @@
 
 
 
-    const pool = mysql.createPool({
+    const pool = mysql.createConnection({
 
         connectionLimit: 10,
 
@@ -16,8 +16,19 @@
 
         password: 'L4iFV7pbaWj7DA',
 
+        port : 3306,
+
         database: 'TaskMasterDatabase',
 
     });
+
+    pool.connect(function(err) {
+        if (err) {
+          console.error('Database connection failed: ' + err.stack);
+          return;
+        }
+
+        console.log('Connected to database.');
+      });
 
 module.exports = pool;
