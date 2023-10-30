@@ -18,6 +18,8 @@
 
         database: 'TaskMasterDatabase',
 
+        port: 3306,
+
     });
 
 module.exports = pool;
