@@ -26,9 +26,17 @@ const db = mysql.createConnection({
 
     password: 'L4iFV7pbaWj7DA',
 
-    database: 'TaskMasterDatabase',
+    database: '',
 
     port: "3306",
+
+    connectionLimit: 15,
+
+    queueLimit: 30,
+
+    connectTimeout: 1000000,
+
+    acquireTimeout: 1000000
 });
 
  

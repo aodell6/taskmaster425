@@ -1,7 +1,7 @@
 to connect to the DB be in the directory with the .pem
 file and run the following command
 
-ssh -i "TaskMaster425.pem" ec2-user@ec2-3-19-57-242.us-east-2.compute.amazonaws.com
+ssh -i "TaskMaster425.pem" ec2-user@ec2-3-137-41-105.us-east-2.compute.amazonaws.com
 
 that line gives admin access to the db
 
