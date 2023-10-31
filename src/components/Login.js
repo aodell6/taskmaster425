@@ -9,6 +9,7 @@ function Login({stateFunction}) {
     const handleLogin = () => {
 
             console.log('clicked');
+
             stateFunction(true);
         };
 
@@ -18,12 +19,12 @@ function Login({stateFunction}) {
             <div className="title-container">
             <h1 className="title">Task Management</h1>
             </div>
-        
+
             <div className="login-container">
                 <h2>Login</h2>
                 <form>
                     <label>Email:
-                        <input 
+                        <input
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
