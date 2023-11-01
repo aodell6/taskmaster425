@@ -1,5 +1,5 @@
 import pymysql
-import json
+from JSPrint import JSPrint as JSP
 
 ouput = dict()
 
@@ -19,7 +19,7 @@ connection = pymysql.connect(
 
 try:
     cursor = connection.cursor()
-    cursor.execute("USE TaslDatabase")
+    cursor.execute("USE defaultdb;")
     cursor.execute("""CREATE TABLE `TaskDatabase` (
 	`TaskID` INT unsigned NOT NULL AUTO_INCREMENT,
 	`UserID` INT NOT NULL,
@@ -31,10 +31,10 @@ try:
 
 
     cursor.execute('INSERT INTO TaskDatabase ("UserID", "TaskTitle", "TaskDescription", "TaskType", "DueDate") VALUES (1, "test title","test desc",1, "2023-10-31")')
-    print({"cursor.fetchall":cursor.fetchall()})
+    JSP.output(cursor.fetchall())
 
 except Exception as e:
-    print({"error":e})
+    JSP.outputKnown("error",e)
 
 finally:
-    connection.close()
+    JSP.outputKnown("close", connection.close())
