@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import TaskModal from "../modals/TaskModal";
-import axios from "axios";
+//import axios from "axios";
 
 function Task({ colIndex, taskIndex }) {
     const boards = useSelector((state) => state.boards);

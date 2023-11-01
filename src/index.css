@@ -8,6 +8,22 @@
   }
 }
 
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #2b2c37;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #2b2c37;
+  border-radius: 14px;
+  border: 3px solid #007bff;
+}
+
 .h3 {
   size: 90px;
   font-family: 'Roboto', sans-serif;

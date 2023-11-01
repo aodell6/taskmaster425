@@ -73,8 +73,8 @@ function AddEditModal({
       <div
           className = {
             device === "mobile"
-                ? "  py-6 px-6 pb-40 left-0 flex  right-0 bottom-[-100vh] top-0 dropdown "
-                : "  py-6 px-6 pb-40 left-0 flex  right-0 bottom-0 top-0 dropdown "
+                ? " py-6 px-6 pb-40 absolute left-0 flex right-0 bottom-[-100vh] top-0 dropdown "
+                : " py-6 px-6 pb-40 absolute left-0 flex right-0 bottom-0 top-0 dropdown "
           }
           onClick = {(e) => {
             if (e.target !== e.currentTarget) {
@@ -84,8 +84,8 @@ function AddEditModal({
           }}
       >
         <div
-            className = "max-h-[95vh]  my-auto  bg-white dark:bg-[#2b2c37] dark:text-[#007bff] font-bold
-       shadow-md shadow-[#364e7e1a] max-w-md mx-auto  w-full px-8  py-8 rounded-xl"
+            className = "scrollbar-hide overflow-y-scroll max-h-[95vh] my-auto bg-[#2b2c37] text-[#007bff] font-bold
+       shadow-md shadow-[#364e7e1a] max-w-md mx-auto w-full px-8  py-6 rounded-xl"
         >
           <h3 className = "text-lg">
             {type === "edit" ? "Edit" : "Add New"} Task
