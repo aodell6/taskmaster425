@@ -1,4 +1,7 @@
 import pymysql
+import json
+
+ouput = dict()
 
 timeout = 10
 connection = pymysql.connect(
@@ -28,11 +31,10 @@ try:
 
 
     cursor.execute('INSERT INTO TaskDatabase ("UserID", "TaskTitle", "TaskDescription", "TaskType", "DueDate") VALUES (1, "test title","test desc",1, "2023-10-31")')
-    print(cursor.fetchall())
+    print({"cursor.fetchall":cursor.fetchall()})
 
 except Exception as e:
-    print("hit exception")
-    print(e)
+    print({"error":e})
 
 finally:
     connection.close()
