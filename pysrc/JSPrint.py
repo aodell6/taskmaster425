@@ -5,7 +5,9 @@ class JSPrint:
     @staticmethod
     def outputKnown(key, value) -> None:
 
-        print(str(json.dumps({str(key): str(value)})).strip())
+        outputVal = str({str(key): str(value)}).replace('"','\x5c"').replace("'",'"')
+
+        print(outputVal)
 
     @staticmethod
     def output(content) -> None:
@@ -17,5 +19,3 @@ class JSPrint:
                     JSPrint.outputKnown(key, value)
         else:
             JSPrint.outputKnown('UnknownValue'+str(random.randint(0,25000)), content)
-
-

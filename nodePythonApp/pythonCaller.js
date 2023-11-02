@@ -1,4 +1,7 @@
 const { spawn } = require('child_process');
+
+const outputDictionary = JSON.parse('{}');
+
 /** remove warning that you don't care about */
 function cleanWarning(error) {
     return error.replace(/Detector is not able to detect the language reliably.\n/g,"");
@@ -46,7 +49,14 @@ function callPython(scriptName) {
 
         pyprog.stdout.on("end", function(){
             if(resultError == "") {
-                success(JSON.parse(result));
+                var outlist = result.replaceAll("\r", "");
+                outlist = outlist.split("\n");
+
+                outlist = outlist.filter(n => n);
+
+                console.log(outlist);
+
+                success(JSON.parse(outlist[0]));
             }else{
                 console.error(`Python error, you can reproduce the error with: \n${scriptName}}`);
                 const error = new Error(resultError);
