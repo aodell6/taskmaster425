@@ -1,5 +1,9 @@
+
+from sys import argv as args
 from JSPrint import JSPrint as JSP
 from Connection import Connection
+
+args = args[1:]
 
 connection = Connection.connection
 
@@ -19,12 +23,9 @@ try:
 	`Date` DATE,
 	PRIMARY KEY (`TaskID`));""")
 
-    com.execute("INSERT INTO TaskDatabase (UserID, Title, Description, Type, Date) VALUES ('TestUser1', 'test title1','test desc1', 1, '2023-10-31');")
-    com.execute("COMMIT;")
-    com.execute("SELECT * from TaskDatabase;")
+    com.execute("SELECT * FROM TaskDatabase WHERE UserID='"+args[0]+"';")
 
-
-    JSP.outputKnown("AllTask", com.fetchall())
+    JSP.outputKnown("UserTask", com.fetchall())
 
 
 

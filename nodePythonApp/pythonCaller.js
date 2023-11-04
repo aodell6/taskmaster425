@@ -9,8 +9,7 @@ function cleanWarning(error) {
 
 function callPythonArgs(scriptName, args) {
     return new Promise(function(success, reject) {
-        const pyArgs = [script, JSON.stringify(args) ]
-        const pyprog = spawn("python", ([scriptName].concat(pyArgs)));
+        const pyprog = spawn("python", ([scriptName].concat(args)));
         let result = "";
         let resultError = "";
         pyprog.stdout.on('data', function(data) {
@@ -23,9 +22,16 @@ function callPythonArgs(scriptName, args) {
 
         pyprog.stdout.on("end", function(){
             if(resultError == "") {
-                success(JSON.parse(result));
+                var outlist = result.replaceAll("\r", "");
+                outlist = outlist.split("\n");
+
+                outlist = outlist.filter(n => n);
+
+                console.log(outlist);
+
+                success(JSON.parse(outlist[0]));
             }else{
-                console.error(`Python error, you can reproduce the error with: \n${scriptName} ${pyArgs.join(" ")}`);
+                console.error(`Python error, you can reproduce the error with: \n${scriptName}}`);
                 const error = new Error(resultError);
                 console.error(error);
                 reject(resultError);

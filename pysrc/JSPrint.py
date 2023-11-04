@@ -5,9 +5,7 @@ class JSPrint:
     @staticmethod
     def outputKnown(key, value) -> None:
 
-        outputVal = str({str(key): str(value)}).replace('"','\x5c"').replace("'",'"')
-
-        print(outputVal)
+        print(json.dumps({str(key): str(value)}))
 
     @staticmethod
     def output(content) -> None:

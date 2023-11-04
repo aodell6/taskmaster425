@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
  var dataToSend;
  // spawn new child process to call the python script
- const python = pythonCaller.callPython("pysrc/mysqlpull.py")
+ const python = pythonCaller.callPythonArgs("pysrc/GetSpecificUserData.py",["TestUser1"])
  // collect data from script
  console.log(python)
 
