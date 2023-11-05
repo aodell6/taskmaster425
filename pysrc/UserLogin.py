@@ -13,19 +13,14 @@ try:
 
     com.execute("USE defaultdb;")
 
-    com.execute("""CREATE TABLE IF NOT EXISTS `TaskDatabase` (
-	`TaskID` INT unsigned NOT NULL AUTO_INCREMENT,
+    com.execute("""CREATE TABLE IF NOT EXISTS  `LoginDatabase` (
 	`UserID` VARCHAR(32) NOT NULL,
-	`Title` VARCHAR(255) NOT NULL,
-	`Description` TEXT,
-	`Type` TINYINT unsigned NOT NULL,
-	`Date` DATE,
-	PRIMARY KEY (`TaskID`));""")
+	`Password` VARCHAR(127) NOT NULL,
+	PRIMARY KEY (`UserID`));""")
 
-    com.execute("SELECT * FROM TaskDatabase WHERE UserID='"+args[0]+"';")
+    com.execute("SELECT * FROM LoginDatabase WHERE UserID='"+args[0]+"';")
 
-    JSP.outputKnown("UserTask", com.fetchall())
-
+    JSP.outputKnown("Login", com.fetchall()[0]["Password"] == args[1])
 
 
 except Exception as e:

@@ -22,11 +22,13 @@ try:
 	`Date` DATE,
 	PRIMARY KEY (`TaskID`));""")
 
-    com.execute("SELECT * FROM TaskDatabase WHERE UserID='"+args[0]+"';")
+    com.execute("""UPDATE TaskDatabase
+                SET Title = {title}, Description = {desc}, Type = {comp}, Date = {date}
+                WHERE TaskID = {task},UserID = {user};""".format(task = args[0], user = args[1], title = args[2], desc = args[3], comp = args[4], date = args[5]))
+    
+    com.execute("COMMIT;")
 
-    JSP.outputKnown("UserTask", com.fetchall())
-
-
+    JSP.outputKnown("UpdateTask", com.fetchall())
 
 except Exception as e:
     JSP.outputKnown("error",e)
