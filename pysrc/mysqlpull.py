@@ -5,7 +5,7 @@ connection = Connection.connection
 
 try:
     cursor = connection.cursor()
-    cursor.execute("""CREATE TABLE `TaskDatabase` (
+    cursor.execute("""CREATE TABLE IF NOT EXISTS `TaskDatabase` (
 	`TaskID` INT unsigned NOT NULL AUTO_INCREMENT,
 	`UserID` INT NOT NULL,
 	`TaskTitle` VARCHAR(255) NOT NULL,
