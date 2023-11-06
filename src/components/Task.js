@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import TaskModal from "../modals/TaskModal";
-//import axios from "axios";
 
 function Task({ colIndex, taskIndex }) {
     const boards = useSelector((state) => state.boards);
@@ -28,7 +27,7 @@ function Task({ colIndex, taskIndex }) {
                 }}
                 draggable
                 onDragStart = {handleOnDrag}
-                className = "w-[280px] first:my-4 rounded-lg  bg-white  dark:bg-[#2b2c37] py-6 px-3 shadow-lg dark:text-white"
+                className = "w-[280px] first:my-4 rounded-lg bg-[#2b2c37] py-6 px-3 shadow-lg text-white"
             >
                 <p className = "font-bold tracking-wide">{task.title}</p>
             </div>

@@ -84,7 +84,7 @@ function AddEditModal({
           }}
       >
         <div
-            className = "scrollbar-hide overflow-y-scroll max-h-[95vh] my-auto bg-[#2b2c37] text-[#007bff] font-bold
+            className = "scrollbar-hide overflow-y-scroll max-h-[95vh] my-auto bg-[#2b2c37] text-white text-[#007bff] font-bold
        shadow-md shadow-[#364e7e1a] max-w-md mx-auto w-full px-8  py-6 rounded-xl"
         >
           <h3 className = "text-lg">
@@ -93,7 +93,7 @@ function AddEditModal({
 
           {/* Task Name */}
           <div className = "mt-8 flex flex-col space-y-1">
-            <label className = "text-sm dark:text-[#007bff]">
+            <label className = "text-sm text-[#007bff]">
               Task Name
             </label>
             <input
@@ -101,13 +101,13 @@ function AddEditModal({
                 onChange = {(e) => setTitle(e.target.value)}
                 id = "task-name-input"
                 type = "text"
-                className = "bg-transparent  px-4 py-2 outline-none focus:border-0 rounded-md text-sm  border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-1  ring-0  "
+                className = "bg-transparent px-4 py-2 outline-none focus:border-0 rounded-md text-sm text-white border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-1  ring-0  "
             />
           </div>
 
           {/* Due Date */}
           <div className = "mt-8 flex flex-col space-y-1">
-            <label className = "text-sm dark:text-[#007bff]">
+            <label className = "text-sm text-[#007bff]">
               Due Date
             </label>
             <input
@@ -115,32 +115,32 @@ function AddEditModal({
                 onChange = {(e) => setDueDate(e.target.value)}
                 id = "task-name-input"
                 type = "text"
-                className = "bg-transparent  px-4 py-2 outline-none focus:border-0 rounded-md text-sm  border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-1  ring-0"
+                className = "bg-transparent  px-4 py-2 outline-none focus:border-0 rounded-md text-sm text-white border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-1  ring-0"
             />
           </div>
 
           {/* Description */}
           <div className = "mt-8 flex flex-col space-y-1">
-            <label className = "text-sm dark:text-[#007bff]">
+            <label className = "text-sm text-[#007bff]">
               Description
             </label>
             <textarea
                 value = {description}
                 onChange = {(e) => setDescription(e.target.value)}
                 id = "task-description-input"
-                className = "bg-transparent outline-none min-h-[200px] focus:border-0 px-4 py-2 rounded-md text-sm  border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-[1px]"
+                className = "bg-transparent outline-none min-h-[200px] focus:border-0 px-4 py-2 rounded-md text-sm text-white border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-[1px]"
             />
           </div>
 
           {/* Status  */}
           <div className = "mt-8 flex flex-col space-y-3">
-            <label className = "text-sm dark:text-[#007bff]">
+            <label className = "text-sm text-[#007bff]">
               Current Status
             </label>
             <select
                 value = {status}
                 onChange = {onChangeStatus}
-                className = "flex-grow px-4 py-2 rounded-md text-sm bg-transparent border-[1px] border-gray-500"
+                className = "flex-grow px-4 py-2 rounded-md text-sm text-white bg-transparent border-[1px] border-gray-500"
             >
               {columns.map((column, index) => (
                   <option key = { index }>{ column.name }</option>

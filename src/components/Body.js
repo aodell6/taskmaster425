@@ -17,8 +17,8 @@ function Body() {
       <div
           className = {
             windowSize[0] >= 768
-                ? "bg-[#f4f7fd]  scrollbar-hide h-screen flex dark:bg-[#20212c]  overflow-x-scroll gap-6  ml-[0px]"
-                : "bg-[#f4f7fd]  scrollbar-hide h-screen flex dark:bg-[#20212c] overflow-x-scroll gap-6"
+                ? "scrollbar-hide h-screen flex bg-[#20212c] overflow-x-scroll gap-6  ml-[0px]"
+                : "scrollbar-hide h-screen flex bg-[#20212c] overflow-x-scroll gap-6"
           }
       >
 

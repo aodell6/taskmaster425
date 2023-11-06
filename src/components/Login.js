@@ -1,24 +1,19 @@
 import React, { useState } from "react";
-
 import '../login.css';
-
 
 function Login({stateFunction}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-
             console.log('clicked');
-
             stateFunction(true);
         };
 
     return (
         <div className="title-page">
-
             <div className="title-container">
-            <h1 className="title">Task Management</h1>
+            <h1 className="title">Task Manager</h1>
             </div>
 
             <div className="login-container">
