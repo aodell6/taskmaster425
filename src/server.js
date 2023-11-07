@@ -1,6 +1,6 @@
 const express = require('express');
 
-const pool = require('./src/db');
+const pool = require('./db');
 
 const cors = require('cors');
 
@@ -13,12 +13,15 @@ app.use(cors());
 app.use(express.json());
 
 
+app.get('/', (req, res) =>{
+  res.json({message: "Welcome to the db connection"});
+})
 
 // Get all tasks
 
 app.get('/tasks', (req, res) => {
 
-  pool.query('SELECT * FROM tasks', (error, results) => {
+  pool.query('SELECT * FROM TaskDatabase', (error, results) => {
 
     if (error) throw error;
 
@@ -28,8 +31,9 @@ app.get('/tasks', (req, res) => {
 
 });
 
-app.get('/task:userID', (req, res) => {
-    pool.query('SELECT * FROM TaskDatabase WHERE UserID=?;', (error, results) => {
+app.get('/tasks/:userID', (req, res) => {
+    const userID = req.params.userID;
+    pool.query('SELECT * FROM TaskDatabase WHERE UserID=?;', [userID], (error, results) => {
         if(error) throw error;
         res.json(results);
     });
@@ -37,11 +41,15 @@ app.get('/task:userID', (req, res) => {
 
 // Add a new task
 
-app.post('/tasks:userID, taskTitle, description, type, date', (req, res) => {
+app.post('/tasks/:userID&:taskTitle&:description&:type&:date', (req, res) => {
 
-  const { userID, taskTitle, description, type, date } = req.body;
+  const userID = req.params.userID;
+  const taskTitle = req.params.taskTitle;
+  const description = req.params.description;
+  const type = req.params.type;
+  const date = req.params.date;
 
-  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (?, ?, ?, ?, ?);", [userID, taskTitle, description, type, date], (error, results) => {
+  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (?, ?, ?, ?, ?); COMMIT;", [userID, taskTitle, description, type, date], (error, results) => {
 
     if (error) throw error;
 
@@ -53,12 +61,18 @@ app.post('/tasks:userID, taskTitle, description, type, date', (req, res) => {
 
     });
 
+    res.json({pushed: "Successful in query"});
   });
+
+  res.json({pushed: "Successful out query"});
 
 });
 
-app.get('/login:userID, password', (req, res) => {
-    const {userID, password} = req.params;
+app.get('/login/:userID&:password', (req, res) => {
+
+    const userID = req.params.userID;
+    const password = req.params.password;
+
 
     pool.query("SELECT * FROM LoginDatabase WHERE UserID=? AND Password=?", [userID, password], (error, results) => {
         if (error) throw error;
@@ -66,8 +80,11 @@ app.get('/login:userID, password', (req, res) => {
     });
 })
 
-app.post('/login:userID, password1, password2', (req, res) => {
-    const {userID, "userID, password1, password2", password2} = req.params;
+app.post('/login/:userID&:password1&:password2', (req, res) => {
+    
+    const userID = req.params.userID;
+    const password1 = req.params.password1;
+    const password2 = req.params.password2;
 
     if(password1 === password2){
         pool.query("SELECT * FROM LoginDatabase WHERE UserID=? AND Password=?", [userID, password], (error, results) => {
@@ -84,9 +101,10 @@ app.post('/login:userID, password1, password2', (req, res) => {
 
 // Delete a task
 
-app.delete('/tasks/:userID, taskID', (req, res) => {
+app.delete('/tasks/:userID&:taskID', (req, res) => {
 
-  const {userID, taskID} = req.params;
+  const userID = req.params.userID;
+  const taskID = req.params.taskID;
 
   pool.query('DELETE FROM tasks WHERE UserID = ? AND TaskID=?', [userID, taskID], (error, results) => {
 
