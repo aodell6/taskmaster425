@@ -1,6 +1,5 @@
 const mysql = require('mysql2/promise');
-const bluebird = require('bluebird');
-
+//const bluebird = require('bluebird');
 class Connection{
     constructor(){
         this.timeout = 10;
@@ -68,6 +67,12 @@ class Connection{
         return data;
     }
 
+    async getAllTasks(){
+        this.taskTable();
+        var data = this.command("SELECT * FROM TaskDatabase;")
+        return data;
+    }
+
     async updateTask(taskID, userID, title, description, type, date){
         this.taskTable();
         this.command("UPDATE TaskDatabase SET Title = " + title + ", Description = " + description + ", Type = " + type + ", Date = " + date + " WHERE TaskID = " + taskID + ",UserID = " + userID + ";")
@@ -89,6 +94,8 @@ class Connection{
         return false
     }
 
-    
+
 
 }
+
+export Connection();
