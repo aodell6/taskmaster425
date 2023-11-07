@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../login.css';
+import Logo from "./Logo.png";
 
 function Login({stateFunction}) {
     const [email, setEmail] = useState('');
@@ -13,7 +14,11 @@ function Login({stateFunction}) {
     return (
         <div className="title-page">
             <div className="title-container">
-            <h1 className="title">Task Manager</h1>
+                {/*<img src = {Logo} alt = "Logo" className = "center" />*/}
+                <h1 className="title">
+                    <img src = {Logo} alt = "Logo" className = "center" />
+                    EasySprint
+                </h1>
             </div>
 
             <div className="login-container">

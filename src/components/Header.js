@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AddEditModal from "../modals/AddEditModal";
+import Logo from "./Logo.png";
 
 function Header() {
 
@@ -11,9 +12,9 @@ function Header() {
 
           {/* Title & Logo */}
           <div className = "flex items-center space-x-2 font-bold text-2xl">
-            {/*Put Logo Here*/}
+            <img src = {Logo} alt = "Logo" className = 'h-8 w-8' />
             <h3>
-              Task Manager
+              EasySprint
             </h3>
           </div>
 

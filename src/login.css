@@ -14,12 +14,18 @@ body {
     text-align: center;
     margin: 30px auto 0;
     /* border: 2px solid red; */
+}
 
+.center {
+    text-align: center;
+    margin: 30px auto 0;
+    height: 100px;
+    width: 100px;
 }
 
 .login-container {
     width: 500px;
-    margin: 100px auto 0;
+    margin: 65px auto 0;
     padding: 20px;
     border: 2px solid #007bff;
     border-radius: 5px;
