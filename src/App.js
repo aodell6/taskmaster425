@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Login from "./components/Login";
+import CreateAccount from "./components/CreateAccount";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
