@@ -32,7 +32,7 @@ app.get('/tasks', (req, res) => {
 });
 
 app.get('/tasks/:userID', (req, res) => {
-    const userID = req.params.userID;
+    const userID = req.userID;
     pool.query('SELECT * FROM TaskDatabase WHERE UserID=?;', [userID], (error, results) => {
         if(error) throw error;
         res.json(results);
@@ -41,15 +41,16 @@ app.get('/tasks/:userID', (req, res) => {
 
 // Add a new task
 
-app.post('/tasks/:userID&:taskTitle&:description&:type&:date', (req, res) => {
+app.post('/post/:userID/:taskTitle/:description/:type/:date', (req, res) => {
 
+  console.log(req.params)
   const userID = req.params.userID;
   const taskTitle = req.params.taskTitle;
   const description = req.params.description;
-  const type = req.params.type;
-  const date = req.params.date;
+  const type = Number(req.params.type);
+  const date = req.params.date.replaceAll("%2D", "-");
 
-  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (?, ?, ?, ?, ?); COMMIT;", [userID, taskTitle, description, type, date], (error, results) => {
+  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (" + userID + ", " + taskTitle + ", " + description + ", " + type + ", " + date + "); COMMIT;", [], (error, results) => {
 
     if (error) throw error;
 
@@ -70,8 +71,8 @@ app.post('/tasks/:userID&:taskTitle&:description&:type&:date', (req, res) => {
 
 app.get('/login/:userID&:password', (req, res) => {
 
-    const userID = req.params.userID;
-    const password = req.params.password;
+    const userID = req.userID;
+    const password = req.password;
 
 
     pool.query("SELECT * FROM LoginDatabase WHERE UserID=? AND Password=?", [userID, password], (error, results) => {
@@ -81,10 +82,10 @@ app.get('/login/:userID&:password', (req, res) => {
 })
 
 app.post('/login/:userID&:password1&:password2', (req, res) => {
-    
-    const userID = req.params.userID;
-    const password1 = req.params.password1;
-    const password2 = req.params.password2;
+
+    const userID = req.userID;
+    const password1 = req.password1;
+    const password2 = req.password2;
 
     if(password1 === password2){
         pool.query("SELECT * FROM LoginDatabase WHERE UserID=? AND Password=?", [userID, password], (error, results) => {
@@ -103,8 +104,8 @@ app.post('/login/:userID&:password1&:password2', (req, res) => {
 
 app.delete('/tasks/:userID&:taskID', (req, res) => {
 
-  const userID = req.params.userID;
-  const taskID = req.params.taskID;
+  const userID = req.userID;
+  const taskID = req.taskID;
 
   pool.query('DELETE FROM tasks WHERE UserID = ? AND TaskID=?', [userID, taskID], (error, results) => {
 
