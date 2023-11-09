@@ -41,33 +41,32 @@ app.get('/tasks/:userID', (req, res) => {
 
 // Add a new task
 
-app.post('/tasks/:userID&:taskTitle&:description&:type', (req, res) => {
-
-  console.log(req.params)
+app.post('/task/:userID&:taskTitle&:description&:type&:date', (req, res) => {
   const userID = req.params.userID;
   const taskTitle = req.params.taskTitle;
   const description = req.params.description;
   const type = Number(req.params.type);
   const date = req.params.date.replaceAll("%2D", "-");
-
-  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (?,?,?,?,?); COMMIT;", [userID, taskTitle, description, type, date], (error, results) => {
-
-    if (error) throw error;
-
-    pool.query('SELECT * FROM tasks', (error, results) => {
-
-      if (error) throw error;
-
-      res.json(results);
-
-    });
-
-    res.json({pushed: "Successful in query"});
+  
+  const query = "INSERT INTO TaskDatabase (UserID, Title, Description, Type, Date) VALUES (?, ?, ?, ?, ?);";
+  const values = [userID, taskTitle, description, type, date];
+  
+  pool.query(query, values, (error, results) => {
+  if (error) {
+  console.error(error);
+  return res.status(500).json({ error: "Internal Server Error" });
+  }
+  
+  pool.query('SELECT * FROM tasks', (error, results) => {
+  if (error) {
+  console.error(error);
+  return res.status(500).json({ error: "Internal Server Error" });
+  }
+  
+  res.json(results);
   });
-
-  res.json({pushed: "Successful out query"});
-
-});
+  });
+  });
 
 app.get('/login/:userID&:password', (req, res) => {
 
