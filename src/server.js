@@ -41,7 +41,7 @@ app.get('/tasks/:userID', (req, res) => {
 
 // Add a new task
 
-app.post('/post/:userID/:taskTitle/:description/:type/:date', (req, res) => {
+app.post('/tasks/:userID&:taskTitle&:description&:type', (req, res) => {
 
   console.log(req.params)
   const userID = req.params.userID;
@@ -50,7 +50,7 @@ app.post('/post/:userID/:taskTitle/:description/:type/:date', (req, res) => {
   const type = Number(req.params.type);
   const date = req.params.date.replaceAll("%2D", "-");
 
-  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (" + userID + ", " + taskTitle + ", " + description + ", " + type + ", " + date + "); COMMIT;", [], (error, results) => {
+  pool.query("INSERT INTO TaskDatabase ('UserID', 'Title', 'Description', 'Type', 'Date') VALUES (?,?,?,?,?); COMMIT;", [userID, taskTitle, description, type, date], (error, results) => {
 
     if (error) throw error;
 
