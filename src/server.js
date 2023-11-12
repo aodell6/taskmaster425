@@ -1,9 +1,11 @@
 const express = require('express');
+const bodyParser = requite("body-parser");
 
 const pool = require('./db');
 
 const cors = require('cors');
 
+const dbOperation = require("./dbOperations")
 
 
 const app = express();
@@ -11,15 +13,17 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
-app.get('/', (req, res) =>{
+app.get('/', async (req, res) =>{
   res.json({message: "Welcome to the db connection"});
 })
 
 // Get all tasks
 
-app.get('/tasks', (req, res) => {
+app.get('/allTask', async (req, res) => {
 
   pool.query('SELECT * FROM TaskDatabase', (error, results) => {
 
@@ -31,89 +35,34 @@ app.get('/tasks', (req, res) => {
 
 });
 
-app.get('/tasks/:userID', (req, res) => {
-    const userID = req.userID;
-    pool.query('SELECT * FROM TaskDatabase WHERE UserID=?;', [userID], (error, results) => {
-        if(error) throw error;
-        res.json(results);
-    });
+app.get('/getUserTask', async (req, res) => {
+  console.log("getUserTask")
+  const result = await dbOperation.getTask(req.body);
+  console.log(result);
+  res.json(result.recordset)
 })
 
 // Add a new task
 
-app.post('/task/:userID&:taskTitle&:description&:type&:date', (req, res) => {
-  const userID = req.params.userID;
-  const taskTitle = req.params.taskTitle;
-  const description = req.params.description;
-  const type = Number(req.params.type);
-  const date = req.params.date.replaceAll("%2D", "-");
-  
-  const query = "INSERT INTO TaskDatabase (UserID, Title, Description, Type, Date) VALUES (?, ?, ?, ?, ?);";
-  const values = [userID, taskTitle, description, type, date];
-  
-  pool.query(query, values, (error, results) => {
-  if (error) {
-  console.error(error);
-  return res.status(500).json({ error: "Internal Server Error" });
-  }
-  
-  pool.query('SELECT * FROM tasks', (error, results) => {
-  if (error) {
-  console.error(error);
-  return res.status(500).json({ error: "Internal Server Error" });
-  }
-  
-  res.json(results);
-  });
-  });
-  });
+app.post('/addTask', async (req, res) => {
+  console.log("addTask");
+  dbOperation.createTask(req.body);
+});
 
-app.get('/login/:userID&:password', (req, res) => {
-
-    const userID = req.userID;
-    const password = req.password;
-
-
-    pool.query("SELECT * FROM LoginDatabase WHERE UserID=? AND Password=?", [userID, password], (error, results) => {
-        if (error) throw error;
-        res.json(results);
-    });
+app.get('/authLogin', async (req, res) => {
+  console.log("userLogin");
+  res.json(await dbOperation.getUser(req.body))
 })
 
-app.post('/login/:userID&:password1&:password2', (req, res) => {
-
-    const userID = req.userID;
-    const password1 = req.password1;
-    const password2 = req.password2;
-
-    if(password1 === password2){
-        pool.query("SELECT * FROM LoginDatabase WHERE UserID=? AND Password=?", [userID, password], (error, results) => {
-            if (error) throw error;
-            res.json(results);
-        });
-    }
-    else{
-        res.json({"match" : false});
-    }
-})
+app.post('/newLogin', async (req, res) => {
+  console.log("enwLogin");
+  res.json(await dbOperation.createUser(req.body))
+});
 
 
-
-// Delete a task
-
-app.delete('/tasks/:userID&:taskID', (req, res) => {
-
-  const userID = req.userID;
-  const taskID = req.taskID;
-
-  pool.query('DELETE FROM tasks WHERE UserID = ? AND TaskID=?', [userID, taskID], (error, results) => {
-
-    if (error) throw error;
-
-    res.json({ message: 'Task deleted' });
-
-  });
-
+app.delete('/removeTask', async (req, res) => {
+  console.log("removeTask");
+  await dbOperation.deleteTask(req.body);
 });
 
 
