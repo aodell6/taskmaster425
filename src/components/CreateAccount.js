@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../createAccount.css';
+import '../createAccount.css';      // Import createAccount.css for styling
 
 function CreateAccount({stateFunction}) {
     const [email, setEmail] = useState('');

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../login.css';
+import '../login.css';  // Import Login.css for styling
 import Logo from "./Logo.png";
 
 function Login({stateFunction}) {
@@ -21,6 +21,7 @@ function Login({stateFunction}) {
                 </h1>
             </div>
 
+            {/* Email and Password boxes */}
             <div className="login-container">
                 <h2>Login</h2>
                 <form>
@@ -39,12 +40,12 @@ function Login({stateFunction}) {
                     />
                     </label>
                     <button onClick={handleLogin}>Login</button>
-                    <p>Don't have an account? <a href="createAccount.js">Signup</a></p>
+                    <p>Don't have an account? <a href="createAccount.js">Signup</a></p>     {/* Adding a link to signup */}
                 </form>
             </div>
 
             <footer>
-                &copy; 2023 'The Best Team'
+                &copy; 2023 'The Best Team'     {/* Just creating a basic footer for the page. */}
             </footer>
         </div>
     );
