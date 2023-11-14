@@ -14,8 +14,7 @@ function CreateAccount({stateFunction}) {
         <div className="title-page">
 
             <div className="title-container">
-                <h1 className="title">Task Management</h1>
-
+                <h1 className="title">EasySprint</h1>
             </div>
 
             <div className="create-account-container">
