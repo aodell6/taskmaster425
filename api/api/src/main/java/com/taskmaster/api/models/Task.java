@@ -9,6 +9,13 @@ public class Task {
     private long date;
     private Status status;
 
+    public Task(String name, String description, long date, Status status) {
+        this.name = name;
+        this.description = description;
+        this.date = date;
+        this.status = status;
+    }
+
     public Task(long id, String name, String description, long date, Status status) {
         this.id = id;
         this.name = name;
