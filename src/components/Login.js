@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import '../login.css';  // Import Login.css for styling
 import Logo from "./Logo.png";
 
-function Login({stateFunction}) {
+function Login({stateFunction, signUpFunction}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
             console.log('clicked');
             stateFunction(true);
-        };
+    };
+
+    const handleSignUp = () => {
+        console.log('clicked');
+        signUpFunction(true);
+    };
 
     return (
         <div className="title-page">
@@ -40,7 +45,7 @@ function Login({stateFunction}) {
                     />
                     </label>
                     <button onClick={handleLogin}>Login</button>
-                    <p>Don't have an account? <a href="createAccount.js">Signup</a></p>     {/* Adding a link to signup */}
+                    <p>Don't have an account? <a onClick={handleSignUp}>Sign up</a></p>     {/* Adding a link to signup */}
                 </form>
             </div>
 

@@ -1,6 +1,7 @@
 package com.taskmaster.api.models;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Task {
     private long id;
@@ -8,20 +9,23 @@ public class Task {
     private String description;
     private long date;
     private Status status;
+    private UUID userId;
 
-    public Task(String name, String description, long date, Status status) {
+    public Task(String name, String description, long date, Status status, UUID id) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.status = status;
+        this.userId = id;
     }
 
-    public Task(long id, String name, String description, long date, Status status) {
+    public Task(long id, String name, String description, long date, Status status, UUID userId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.date = date;
         this.status = status;
+        this.userId = userId;
     }
 
     public long getId() {
@@ -63,7 +67,13 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
+    public UUID getUserId() {
+        return this.userId;
+    }
 
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

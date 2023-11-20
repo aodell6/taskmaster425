@@ -7,6 +7,7 @@ import com.taskmaster.api.database.ConnectionSettings;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.DriverManager;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,7 +24,7 @@ public class AuthController {
     }
 
     @GetMapping
-    public boolean attemptLogin(@RequestParam String username, @RequestParam String password) throws Exception {
+    public UUID attemptLogin(@RequestParam String username, @RequestParam String password) throws Exception {
        UserManagementProvider provider = new UserManagementProvider(new MySQLDatabaseMutator(), new MySqlDatabaseAccessor(), DriverManager.getConnection(ConnectionSettings.URL, ConnectionSettings.devUsername, ConnectionSettings.devPassword));
        return provider.authenticate(username, password);
     }

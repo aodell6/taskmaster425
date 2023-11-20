@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../createAccount.css';      // Import createAccount.css for styling
 
-function CreateAccount({stateFunction}) {
+function CreateAccount({stateFunction, onDismiss}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -9,6 +9,10 @@ function CreateAccount({stateFunction}) {
         console.log('clicked');
         stateFunction(true);
     };
+
+    const handleDismissal = () => {
+        onDismiss(false);
+    }
 
     return (
         <div className="title-page">
@@ -42,6 +46,8 @@ function CreateAccount({stateFunction}) {
                         />
                     </label>
                     <button onClick={handleCreateAccount}>Create Account</button>
+                    {/* <button onClick={handleDismissal}> Go back </button> */}
+                    <p>Already have an account? <a onClick={handleDismissal}>Sign in</a></p>
                 </form>
             </div>
             <footer>

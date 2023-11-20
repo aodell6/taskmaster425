@@ -3,6 +3,8 @@ package com.taskmaster.api.authorization.usermanagement;
 import com.taskmaster.api.authorization.models.Password;
 import com.taskmaster.api.authorization.models.User;
 
+import java.util.UUID;
+
 public interface AbstractUserManagementProvider {
     /**
      * Attempt to log a user into the service
@@ -10,7 +12,7 @@ public interface AbstractUserManagementProvider {
      * @param password The password to try
      * @return True if authenticated, else false
      */
-    boolean authenticate(String username, String password);
+    UUID authenticate(String username, String password) throws Exception;
 
     /**
      * Change a user's password.

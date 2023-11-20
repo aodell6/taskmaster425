@@ -8,11 +8,12 @@ import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.List;
+import java.util.UUID;
 
 public class TaskFactory {
 
-    public static Task update(long id, String name, String desc, long dueDate, String status, Connection connection) {
-       return Database.update(id, name, desc, dueDate, status, connection);
+    public static Task update(long id, String name, String desc, long dueDate, String status, UUID userId, Connection connection) {
+       return Database.update(id, name, desc, dueDate, status, userId, connection);
     }
 
     public static boolean create(Connection connection, Task task) {
@@ -23,7 +24,7 @@ public class TaskFactory {
         return Database.delete(id, DriverManager.getConnection(ConnectionSettings.URL, ConnectionSettings.devUsername, ConnectionSettings.devPassword));
     }
 
-    public static List<Task> getTasks() throws Exception {
-        return Database.getTasks(DriverManager.getConnection(ConnectionSettings.URL, ConnectionSettings.devUsername, ConnectionSettings.devPassword));
+    public static List<Task> getTasks(UUID userId) throws Exception {
+        return Database.getTasks(userId, DriverManager.getConnection(ConnectionSettings.URL, ConnectionSettings.devUsername, ConnectionSettings.devPassword));
     }
 }

@@ -6,14 +6,17 @@ import CreateAccount from "./components/CreateAccount";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isSignUpScreenActive, setSignUpScreenActive] = useState(false);
+
   return (
     <>
-      {!isLoggedIn ? (<Login stateFunction={setLoggedIn} />):(
+    {isSignUpScreenActive ? (<CreateAccount onDismiss={setSignUpScreenActive}/>) : (!isLoggedIn ? (<Login stateFunction={setLoggedIn} signUpFunction={setSignUpScreenActive} />):(
         <div className=" overflow-hidden  overflow-x-scroll">
           <Header/>
           <Body />
         </div>
-      )}
+      ))}
+      
     </>
     
   );

@@ -8,6 +8,7 @@ import com.taskmaster.api.authorization.models.User;
 
 import java.sql.Connection;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * A bare-bones implementation of AbstractUserManagementProvider
@@ -27,13 +28,8 @@ public class UserManagementProvider implements AbstractUserManagementProvider {
     }
 
     @Override
-    public boolean authenticate(String username, String password) {
-        try {
-            return !accessor.attemptAuthentication(username, new Password(password), connection).equals(User.emptyInstance());
-        }
-        catch (Exception ex) {
-            return false;
-        }
+    public UUID authenticate(String username, String password) throws Exception {
+        return this.accessor.attemptAuthentication(username, new Password(password), connection).getId();
     }
 
     @Override

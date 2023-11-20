@@ -9,7 +9,9 @@ public class Scaffolder {
             name VARCHAR(200) NOT NULL,
             description LONGTEXT NOT NULL,
             due_date BIGINT NOT NULL,
-            status VARCHAR(12) NOT NULL
+            status VARCHAR(12) NOT NULL,
+            user_id CHAR(36) NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES auth_users(id)
        ) Engine = InnoDB;     
     """;
 
