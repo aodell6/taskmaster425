@@ -55,7 +55,7 @@ app.get('/authLogin', async (req, res) => {
 })
 
 app.post('/newLogin', async (req, res) => {
-  console.log("enwLogin");
+  console.log("newLogin");
   res.json(await dbOperation.createUser(req.body))
 });
 
