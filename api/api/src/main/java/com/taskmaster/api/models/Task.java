@@ -3,6 +3,8 @@ package com.taskmaster.api.models;
 import java.util.Objects;
 import java.util.UUID;
 
+import org.json.JSONObject;
+
 public class Task {
     private long id;
     private String name;
@@ -80,6 +82,35 @@ public class Task {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
         return id == task.id && date == task.date && Objects.equals(name, task.name) && Objects.equals(description, task.description) && status == task.status;
+    }
+
+
+    public JSONObject getJson(){
+        JSONObject jsonObj = new JSONObject();
+
+        jsonObj.put("id", this.id);
+        jsonObj.put("name", this.name);
+        jsonObj.put("description", this.description);
+        jsonObj.put("date", this.date);
+        jsonObj.put("status", this.status.toString());
+        jsonObj.put("userId", this.userId.toString());
+
+        return jsonObj;
+    }
+
+    @Override
+    public String toString() {
+
+        JSONObject jsonObj = new JSONObject();
+
+        jsonObj.put("id", this.id);
+        jsonObj.put("name", this.name);
+        jsonObj.put("description", this.description);
+        jsonObj.put("date", this.date);
+        jsonObj.put("status", this.status.toString());
+        jsonObj.put("userId", this.userId.toString());
+
+        return jsonObj.toString();
     }
 
     @Override
