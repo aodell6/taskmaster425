@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 const cors = require('cors');
 
-const dbOperation = require("./dbOperations")
+const dbOperation = require("/dbOperations")
 
 
 const app = express();
@@ -21,7 +21,7 @@ app.get('/', async (req, res) =>{
 
 // Get all tasks
 
-app.get('./getUserTask', async (req, res) => {
+app.get('/getUserTask', async (req, res) => {
   console.log("getUserTask")
   const result = await dbOperation.getTask(req.body);
   console.log(result);
@@ -30,23 +30,23 @@ app.get('./getUserTask', async (req, res) => {
 
 // Add a new task
 
-app.post('./addTask', async (req, res) => {
+app.post('/addTask', async (req, res) => {
   console.log("addTask");
   dbOperation.createTask(req.body);
 });
 
-app.get('./authLogin', async (req, res) => {
+app.get('/authLogin', async (req, res) => {
   console.log("userLogin");
   res.json(await dbOperation.getUser(req.body))
 })
 
-app.post('./newLogin', async (req, res) => {
+app.post('/newLogin', async (req, res) => {
   console.log("newLogin");
   res.json(await dbOperation.createUser(req.body))
 });
 
 
-app.delete('./removeTask', async (req, res) => {
+app.delete('/removeTask', async (req, res) => {
   console.log("removeTask");
   await dbOperation.deleteTask(req.body);
 });
