@@ -14,7 +14,7 @@ const getTask = async (userInformation) => {
     }
 };
 
-const createTask = async (wsrmation) => {
+const createTask = async (userInformation) => {
     try{
         let pool = await sql.connect(config)
 
@@ -112,7 +112,3 @@ module.exports = {
     deleteTask,
     modifyTask
 };
-
-
-
-

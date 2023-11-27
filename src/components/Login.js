@@ -9,6 +9,23 @@ function Login({stateFunction}) {
 
     const handleLogin = () => {
 
+            const loginUser = async () =>{
+                const customer = await fetch("/authLogin", {
+                    method: "post",
+                    headers: {
+                    "content-type": "application/json",
+                    Accept: "application/json",
+                    },
+                    body: JSON.stringify({
+                        userID: email,
+                        password: password,
+                    }),
+                }).then((res) => res.json());
+                console.log(customer);
+            };
+
+            loginUser();
+
             console.log('clicked');
 
             stateFunction(true);
