@@ -37,6 +37,7 @@ function Header() {
                 setIsAddTaskModalOpen = { setIsTaskModalOpen }
                 type = "add"
                 device = "mobile"
+                className = "cursor-pointer"
             />
         )}
       </div>

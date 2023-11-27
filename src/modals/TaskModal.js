@@ -70,6 +70,7 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
                   setIsEllipsisMenuOpen((prevState) => !prevState);
                 }}
                 size = {28} color = "#007bff"
+                className = "cursor-pointer"
             />
 
             {isEllipsisMenuOpen && (

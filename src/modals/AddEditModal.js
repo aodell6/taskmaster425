@@ -140,7 +140,7 @@ function AddEditModal({
             <select
                 value = {status}
                 onChange = {onChangeStatus}
-                className = "flex-grow px-4 py-2 rounded-md text-sm text-white bg-transparent border-[1px] border-gray-500"
+                className = "flex-grow px-4 py-2 rounded-md text-sm text-white bg-transparent border-[1px] border-gray-500 cursor-pointer"
             >
               {columns.map((column, index) => (
                   <option key = { index }>{ column.name }</option>
