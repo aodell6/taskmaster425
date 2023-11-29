@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../createAccount.css';      // Import createAccount.css for styling
+import '../createAccount.css';
 
 function CreateAccount({stateFunction, onDismiss}) {
     const [email, setEmail] = useState('');
@@ -16,11 +16,9 @@ function CreateAccount({stateFunction, onDismiss}) {
 
     return (
         <div className="title-page">
-
             <div className="title-container">
                 <h1 className="title">EasySprint</h1>
             </div>
-
             <div className="create-account-container">
                 <h2>Create Account</h2>
                 <form>
@@ -45,13 +43,14 @@ function CreateAccount({stateFunction, onDismiss}) {
                         onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>
-                    <button onClick={handleCreateAccount}>Create Account</button>
-                    {/* <button onClick={handleDismissal}> Go back </button> */}
+                    {/*Uses handleDismassal on Creat Account since backend is not connected.*/}
+                    {/*<button onClick={handleCreateAccount}>Create Account</button>*/}
+                    <button onClick={handleDismissal}>Create Account</button>
                     <p>Already have an account? <a onClick={handleDismissal}>Sign in</a></p>
                 </form>
             </div>
             <footer>
-                &copy; 2023 'The Best Team'
+                O'Dell, Baker, Sternberg 2023
             </footer>
         </div>
     );

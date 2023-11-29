@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import boardsSlice from "../redux/boardsSlice";
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 //Add/Edit Task Popup
 function AddEditModal({
@@ -21,6 +23,7 @@ function AddEditModal({
       (board) => board.isActive
   );
 
+  const [date, setDate] = useState(new Date());
   const columns = board.columns;
   const col = columns.find((col, index) => index === prevColIndex);
   const task = col ? col.tasks.find((task, index) => index === taskIndex) : [];
@@ -110,13 +113,9 @@ function AddEditModal({
             <label className = "text-sm text-[#007bff]">
               Due Date
             </label>
-            <input
-                value = { dueDate }
-                onChange = {(e) => setDueDate(e.target.value)}
-                id = "task-name-input"
-                type = "text"
-                className = "bg-transparent  px-4 py-2 outline-none focus:border-0 rounded-md text-sm text-white border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-1  ring-0"
-            />
+              <div>
+                  <DatePicker selected={date} onChange={(date) => setDate(date)} className = "bg-transparent px-4 py-2 outline-none focus:border-0 rounded-md text-sm text-white border-[0.5px] border-gray-600 focus:outline-[#635fc7] outline-1  ring-0  "/>
+              </div>
           </div>
 
           {/* Description */}

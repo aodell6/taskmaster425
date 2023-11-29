@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../login.css';  // Import Login.css for styling
+import '../login.css';
 import Logo from "./Logo.png";
 
 function Login({stateFunction, signUpFunction}) {
@@ -19,7 +19,6 @@ function Login({stateFunction, signUpFunction}) {
     return (
         <div className="title-page">
             <div className="title-container">
-                {/*<img src = {Logo} alt = "Logo" className = "center" />*/}
                 <h1 className="title">
                     <img src = {Logo} alt = "Logo" className = "center" />
                     EasySprint
@@ -45,12 +44,13 @@ function Login({stateFunction, signUpFunction}) {
                     />
                     </label>
                     <button onClick={handleLogin}>Login</button>
-                    <p>Don't have an account? <a onClick={handleSignUp}>Sign up</a></p>     {/* Adding a link to signup */}
+                    {/* Adding a link to signup */}
+                    <p>Don't have an account? <a onClick={handleSignUp}>Sign up</a></p>
                 </form>
             </div>
 
             <footer>
-                &copy; 2023 'The Best Team'     {/* Just creating a basic footer for the page. */}
+                O'Dell, Baker, Sternberg 2023
             </footer>
         </div>
     );

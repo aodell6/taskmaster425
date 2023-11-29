@@ -1,5 +1,3 @@
-/* Styling for Login.js */
-
 body {
     background-color: #20212c;
 }
@@ -13,11 +11,9 @@ body {
 }
 
 /* Put everything in div containers to make it easier to divide up and style */
-
 .title-container {
     text-align: center;
     margin: 30px auto 0;
-    /* border: 2px solid red; */
 }
 
 .center {
@@ -29,7 +25,6 @@ body {
 
 /* This is the main container for the login section, containing 
   the box and the button, as well as the link to the sign in page */
-
 .login-container {
     width: 500px;
     margin: 65px auto 0;
@@ -61,8 +56,7 @@ input {
     margin-bottom: 15px;
   }
   
-  /* Login button styling */
-  
+/* Login button styling */
 button {
     background-color: #007bff;
     color: #fff;

@@ -13,15 +13,14 @@ function Body() {
   const columns = board.columns;
 
   return (
-      // Formats Columns & Makes Theme Work
+      // Formats Columns
       <div
           className = {
             windowSize[0] >= 768
-                ? "scrollbar-hide h-screen flex bg-[#20212c] overflow-x-scroll gap-6  ml-[0px]"
-                : "scrollbar-hide h-screen flex bg-[#20212c] overflow-x-scroll gap-6"
+                ? "scrollbar-hide h-screen flex bg-[#20212c] overflow-x-scroll gap-12"
+                : "scrollbar-hide h-screen flex bg-[#20212c] overflow-x-scroll gap-12"
           }
       >
-
         {/* Adds Columns */}
         {columns.length > 0 ? (
             <>

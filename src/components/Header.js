@@ -9,7 +9,7 @@ function Header() {
     return (
       <div className = "p-4 fixed left-0 bg-[#20212c] z-50 right-0">
         <header className = "flex justify-between text-white items-center">
-
+            
           {/* Title & Logo */}
           <div className = "flex items-center space-x-2 font-bold text-2xl">
             <img src = {Logo} alt = "Logo" className = 'h-8 w-8' />

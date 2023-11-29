@@ -19,7 +19,7 @@ function DeleteModal({ onDeleteBtnClick, setIsDeleteModalOpen }) {
         </h3>
         <div className = "flex w-full mt-4 items-center justify-center space-x-4">
           <button
-            onClick = { onDeleteBtnClick}
+            onClick = { onDeleteBtnClick }
             className = "w-full items-center text-white bg-[#007bff] py-2 rounded-full"
           >
             Delete

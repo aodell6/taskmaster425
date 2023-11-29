@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../data/data.json";
 
-//Basis Of Task Master
+//Basis Of Easy Sprint
 const boardsSlice = createSlice({
   name: "board",
   initialState: data.board,
