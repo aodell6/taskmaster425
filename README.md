@@ -2,8 +2,9 @@
 
 Intuitive and interactive task management board designed to help college students manage their workload.
 
-# Team 5
+# EasySprint
 
 - Addi O'Dell
 - Jaylee Baker
+- Noah Sternberg
 - Nathan Borchelt
