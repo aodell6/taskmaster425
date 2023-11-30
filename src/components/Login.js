@@ -50,7 +50,7 @@ function Login({stateFunction, signUpFunction}) {
             </div>
 
             <footer>
-                O'Dell, Baker, Sternberg 2023
+                {/*O'Dell, Baker, Sternberg 2023*/}
             </footer>
         </div>
     );
