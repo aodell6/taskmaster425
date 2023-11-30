@@ -15,6 +15,8 @@ import java.util.UUID;
  * It is recommended to provide your own implementation of the AbstractUserManagementProvider,
  * or to subclass this class for more specifications and customization of the authorization model,
  * but in theory this will work just fine.
+ *
+ * @author noahcs2002
  */
 public class UserManagementProvider implements AbstractUserManagementProvider {
 

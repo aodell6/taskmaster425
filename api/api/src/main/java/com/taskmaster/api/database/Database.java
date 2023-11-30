@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Java representation of the database.
+ */
 public class Database {
 
     public static boolean createTask(Task taskToCreate, Connection connection) {

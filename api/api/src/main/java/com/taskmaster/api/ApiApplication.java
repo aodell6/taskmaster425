@@ -24,18 +24,5 @@ public class ApiApplication {
 
 		new MySQLDatabaseMutator().migrate(DriverManager.getConnection(ConnectionSettings.URL, ConnectionSettings.devUsername, ConnectionSettings.devPassword));
 		SpringApplication.run(ApiApplication.class, args);
-
-
-		//Need to get UserID? Unsure how to connect it to the front
-
-		try{
-			List<Task> userTask = Database.getTasks(null, connection);
-		}
-		catch(IOException ioex){
-			System.out.println(ioex);
-		}
-
-
 	}
-
 }

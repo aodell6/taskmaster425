@@ -5,6 +5,7 @@ import java.util.UUID;
 
 /**
  * A conventional User model, containing things like ID, first and last name, username, password, etc.
+ * @author noahcs2002
  */
 public class User {
     private UUID id;
@@ -114,6 +115,10 @@ public class User {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public long getPasswordHash() {
+        return passwordHash;
     }
 
     @Override

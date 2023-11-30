@@ -23,6 +23,7 @@ public interface DatabaseAccessor {
      *                   For more information, see <code>DatabaseMutator</code>
 
      * @return A User if authenticated, User.emptyInstance() else.
+     * @author noahcs2002
      */
     User attemptAuthentication(String username, Password password, Connection connection) throws Exception;
 
@@ -32,6 +33,7 @@ public interface DatabaseAccessor {
      * @param connection A connection to a database that has been successfully migrated to include the needed auth tables.
      *                   For more information, see <code>DatabaseMutator</code>
      * @return True if the user is locked out, else false.
+     * @author noahcs2002
      */
     boolean isLockedOut(String username, Connection connection) throws Exception;
 
@@ -41,6 +43,7 @@ public interface DatabaseAccessor {
      * @param connection A connection to a database that has been successfully migrated to include the needed auth tables.
      *                   For more information, see <code>DatabaseMutator</code>
      * @return The last accessed date.
+     * @author noahcs2002
      */
     long getLastAccessedDate(String username, Connection connection) throws Exception;
 
@@ -52,8 +55,17 @@ public interface DatabaseAccessor {
      * @param connection A connection to a database that has been successfully migrated to include the needed auth tables.
      *                   For more information, see <code>DatabaseMutator</code>
      * @return The last date of modification of the user in question.
+     * @author noahcs2002
      */
     long getLastModifiedDate(String username, Password password, Connection connection) throws Exception;
 
+    /**
+     * Given a username, fetch a user who corresponds. Assuming a safe implementation of user creation, this
+     * should be a deterministic and safe operation.
+     * @param username The username to query for
+     * @param connection The connection on which to run the queries
+     * @return A User, should one be found. Otherwise, User.emptyInstance()
+     * @author noahcs2002
+     */
     User getUser(String username, Connection connection) throws Exception;
 }

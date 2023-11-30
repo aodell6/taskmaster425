@@ -5,6 +5,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * MySQL-based implementation of <code>DatabaseAccessor</code>
+ * @author noahcs2002
+ */
 public class MySqlDatabaseAccessor implements DatabaseAccessor {
     @Override
     public User attemptAuthentication(String username, Password password, Connection connection) throws Exception {
