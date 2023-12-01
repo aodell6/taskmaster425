@@ -7,24 +7,24 @@ function Header() {
     const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
 
     return (
-      <div className = "p-4 fixed left-0 bg-[#20212c] z-50 right-0">
-        <header className = "flex justify-between text-white items-center">
+      <div className = "p-4 fixed left-0 right-0 bg-[#20212c]">
+        <header className = "justify-between flex text-white">
             
           {/* Title & Logo */}
-          <div className = "flex items-center space-x-2 font-bold text-2xl">
+          <div className = "flex space-x-2 font-bold text-2xl">
             <img src = {Logo} alt = "Logo" className = 'h-8 w-8' />
             <h3>
               EasySprint
             </h3>
           </div>
-
+            
             {/* Add Task Icon */}
-          <div className = "flex space-x-4 items-center md:space-x-6">
+          <div>
             <button
                 onClick = {() => {
                   setIsTaskModalOpen((prevState) => !prevState);
                 }}
-                className = "button py-1 px-3"
+                className = "button px-3 py-1"
             >
               +
             </button>

@@ -27,7 +27,7 @@ function Task({ colIndex, taskIndex }) {
                 }}
                 draggable
                 onDragStart = {handleOnDrag}
-                className = "w-[280px] first:my-4 rounded-lg bg-[#2b2c37] py-6 px-3 shadow-lg text-white cursor-pointer"
+                className = "first:my-6 rounded-lg bg-[#2b2c37] py-6 px-4 text-white cursor-pointer"
             >
                 <p className = "font-bold tracking-wide">{task.title}</p>
             </div>

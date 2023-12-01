@@ -34,7 +34,7 @@ function Column({ colIndex }) {
           // Columns Under Header
           className = "mx-5 pt-[90px] min-w-[280px]"
       >
-        {/*Adds Columns to Board*/}
+        {/*Adds Column Names to Board*/}
         <p className = "flex tracking-widest text-[#007bff]">
           {col.name} ({col.tasks.length})
         </p>
