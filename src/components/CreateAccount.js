@@ -50,7 +50,7 @@ function CreateAccount({stateFunction, onDismiss}) {
                 </form>
             </div>
             <footer>
-                {/*O'Dell, Baker, Sternberg 2023*/}
+                2023 T5 Software
             </footer>
         </div>
     );
