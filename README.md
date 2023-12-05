@@ -7,4 +7,3 @@ Intuitive and interactive task management board designed to help college student
 - Addi O'Dell
 - Jaylee Baker
 - Noah Sternberg
-- Nathan Borchelt
