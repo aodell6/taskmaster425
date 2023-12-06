@@ -7,7 +7,7 @@ import java.sql.Connection;
 /**
  * A utility interface designed to handle the 'update' functions in the
  * required authorization tables.
- * //
+ * ||
  * It is recommended you implement <code>migrate()</code> in such a way that the tables are made if they do not exist.
  * Then, you can call migrate before all additional calls, for reliability.
  *
@@ -29,15 +29,16 @@ public interface DatabaseMutator {
      *      lockoutReason VARCHAR(255),
      *      isDeleted BIT NOT NULL
      * @param connection A connection to the database you wish to scaffold.
-     * @return True if successful, else false.
+     * @author noahcs2002
      */
-    boolean migrate(Connection connection) throws Exception;
+    void migrate(Connection connection) throws Exception;
 
     /**
      * Create a user in a properly migrated database.
      * @param user The user to create.
      * @param connection A connection to a properly migrated Database. See <code>migrate().</code>
      * @return True if successful, else false.
+     * @author noahcs2002
      */
     boolean createUser(User user, Connection connection) throws Exception;
 
@@ -46,6 +47,7 @@ public interface DatabaseMutator {
      * @param user The user to soft-delete.
      * @param connection A connection to a properly migrated DB. See <code>migrate().</code>
      * @return True if successful, else false.
+     * @author noahcs2002
      */
     boolean deleteUser(User user, Connection connection) throws Exception;
 
@@ -55,6 +57,7 @@ public interface DatabaseMutator {
      * @param newUser A new model to make the old one reflect.
      * @param connection A connection to a properly migrated Database. See <code>migrate().</code>
      * @return True if successful, else false.
+     * @author noahcs2002
      */
     boolean alterUser(User oldUser, User newUser, Connection connection) throws Exception;
 
@@ -65,6 +68,7 @@ public interface DatabaseMutator {
      * @param newPassword The new password.
      * @param connection A connection to a properly migrated Database. See <code>migrate().</code>
      * @return True if successful, else false.
+     * @author noahcs2002
      */
     boolean changePassword(User user, Password oldPassword, Password newPassword, Connection connection) throws Exception;
 }

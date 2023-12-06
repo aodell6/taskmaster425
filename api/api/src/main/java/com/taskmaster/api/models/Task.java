@@ -5,6 +5,9 @@ import java.util.UUID;
 
 import org.json.JSONObject;
 
+/**
+ * Task data model.
+ */
 public class Task {
     private long id;
     private String name;

@@ -2,6 +2,9 @@ package com.taskmaster.api.database;
 
 import java.sql.Connection;
 
+/**
+ * Used to create the needed tables for EasySprint.
+ */
 public class Scaffolder {
     private static String createTasks = """
        CREATE TABLE IF NOT EXISTS easysprint.tasks (

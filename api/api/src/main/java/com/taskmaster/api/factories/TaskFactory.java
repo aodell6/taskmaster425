@@ -10,6 +10,9 @@ import java.sql.DriverManager;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Factory provider for all task related operations.
+ */
 public class TaskFactory {
 
     public static Task update(long id, String name, String desc, long dueDate, String status, UUID userId, Connection connection) {
