@@ -15,11 +15,7 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/api/auth")
-<<<<<<< HEAD
 @CrossOrigin(origins = "*")
-=======
-@CrossOrigin(origins = "http://localhost:3000")
->>>>>>> 55e97702484254d96096009fd25f2959ad0690c8
 public class AuthController {
 
     /**
