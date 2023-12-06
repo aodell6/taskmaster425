@@ -4,6 +4,7 @@ import java.util.Objects;
 
 /**
  * A simple password object containing the plain text and a hash of the password for long term storage in a database.
+ * @author noahsternberg
  */
 public class Password {
 
